@@ -1,10 +1,13 @@
 import { useReducer, useEffect } from "react"
-import { Todo } from "../08-useReducer/interfaces/interfacesTodo"
-import { todoReducer, estadoInicial } from "../08-useReducer/TodoReducer"
+
+import { Todo } from "./interfacesTodo"
+import { todoReducer } from "./TodoReducer"
 
 const init = () => {
     return JSON.parse(localStorage.getItem('Todos') || '')
   }
+
+  export const estadoInicial : Todo[] = []
 
  export const useTodos = () => {
     const [todoState, dispatch] = useReducer(todoReducer, estadoInicial, init)
